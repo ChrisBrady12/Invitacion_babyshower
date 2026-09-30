@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Baby Shower</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+  <!-- =====================================================
+       VISTA PREVIA AL COMPARTIR
+       ===================================================== -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Baby Shower y Revelación"
+  >
+
+  <meta
+    property="og:description"
+    content="La cuenta regresiva ha comenzado ..."
+  >
+
+  <!-- URL ABSOLUTA DE LA IMAGEN -->
+  <meta
+    property="og:image"
+    content="https://chrisbrady12.github.io/Invitacion_babyshower/preview.jpg"
+  >
+
+  <meta
+    property="og:image:secure_url"
+    content="https://chrisbrady12.github.io/Invitacion_babyshower/preview.jpg"
+  >
+
+  <meta
+    property="og:image:type"
+    content="image/jpeg"
+  >
+
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
+
+  <meta
+    property="og:image:height"
+    content="630"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="Invitación Baby Shower y Revelación"
+  >
+
+  <!-- URL EXACTA DE TU GITHUB PAGES -->
+  <meta
+    property="og:url"
+    content="https://chrisbrady12.github.io/Invitacion_babyshower/"
+  >
+
+
+  <!-- =====================================================
+       COLOR DEL NAVEGADOR
+       ===================================================== -->
+
+  <meta
+    name="theme-color"
+    content="#fbf6f2"
+  >
+
+
+  <!-- =====================================================
+       ESTILOS
+       ===================================================== -->
+
+  <style>
+
+    :root {
+
+      --bg: #fbf6f2;
+
+      --paper: #fffdfb;
+
+      --text: #5c4a46;
+
+      --muted: #8b7771;
+
+      --accent: #c89d98;
+
+      --accent-dark: #a97872;
+
+      --line: #eadbd5;
+
+      --shadow:
+        0 18px 50px
+        rgba(91,69,62,.12);
+
+
+      /* =================================================
+         COLORES DE LOS BOTONES
+         Puedes cambiarlos después desde aquí
+         ================================================= */
+
+      --button-primary-bg: #c89d98;
+
+      --button-primary-border: #c89d98;
+
+      --button-primary-text: #ffffff;
+
+      --button-bg: #ffffff;
+
+      --button-border: #eadbd5;
+
+      --button-text: #654f4a;
+
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background:
+
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(200,157,152,.12),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(232,210,199,.20),
+          transparent 30%
+        ),
+
+        var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+      min-height: 100vh;
+
+    }
+
+
+    a {
+
+      text-decoration: none;
+
+      color: inherit;
+
+    }
+
+
+    /* =====================================================
+       CONTENEDOR
+       ===================================================== */
+
+    .page {
+
+      width: min(100%, 680px);
+
+      margin: 0 auto;
+
+      padding:
+        18px
+        14px
+        40px;
+
+    }
+
+
+    .card {
+
+      background:
+        rgba(255,253,251,.94);
+
+      border:
+        1px solid
+        rgba(234,219,213,.9);
+
+      border-radius: 28px;
+
+      box-shadow:
+        var(--shadow);
+
+      overflow: hidden;
+
+    }
+
+
+    /* =====================================================
+       VIDEO
+       ===================================================== */
+
+    .hero {
+
+      padding: 12px;
+
+    }
+
+
+    .video-wrap {
+
+      position: relative;
+
+      width: 100%;
+
+      aspect-ratio: 9 / 16;
+
+      background: #eee7e3;
+
+      border-radius: 21px;
+
+      overflow: hidden;
+
+    }
+
+
+    .video-wrap video {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      background: #eee7e3;
+
+    }
+
+
+    .video-note {
+
+      position: absolute;
+
+      left: 50%;
+
+      bottom: 12px;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        rgba(255,253,251,.88);
+
+      backdrop-filter:
+        blur(8px);
+
+      padding:
+        7px
+        13px;
+
+      border-radius: 999px;
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      white-space: nowrap;
+
+      box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.08);
+
+    }
+
+
+    /* =====================================================
+       CONTENIDO
+       ===================================================== */
+
+    .content {
+
+      padding:
+        34px
+        24px
+        38px;
+
+      text-align: center;
+
+    }
+
+
+    .eyebrow {
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: var(--accent-dark);
+
+      margin-bottom: 13px;
+
+    }
+
+
+    h1 {
+
+      margin: 0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-weight: 400;
+
+      font-size: 39px;
+
+      line-height: 1.05;
+
+      color: #6c5550;
+
+    }
+
+
+    .intro {
+
+      margin:
+        14px
+        auto
+        0;
+
+      max-width: 460px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+    }
+
+
+    .divider {
+
+      width: 70px;
+
+      height: 1px;
+
+      background: var(--line);
+
+      margin:
+        26px
+        auto;
+
+    }
+
+
+    /* =====================================================
+       FECHA Y HORA
+       ===================================================== */
+
+    .event {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+      margin:
+        0
+        auto
+        24px;
+
+      max-width: 500px;
+
+    }
+
+
+    .event-box {
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 17px;
+
+      padding:
+        15px
+        10px;
+
+      background: #fffaf7;
+
+    }
+
+
+    .event-box strong {
+
+      display: block;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 19px;
+
+      font-weight: 400;
+
+      color: #6c5550;
+
+    }
+
+
+    .event-box span {
+
+      display: block;
+
+      margin-top: 4px;
+
+      font-size: 10px;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+    }
+
+
+    /* =====================================================
+       UBICACIÓN
+       ===================================================== */
+
+    .location {
+
+      margin:
+        0
+        auto
+        25px;
+
+      max-width: 470px;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+
+      color: #6f5b56;
+
+    }
+
+
+    .location strong {
+
+      display: block;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 20px;
+
+      font-weight: 400;
+
+      margin-bottom: 4px;
+
+    }
+
+
+    /* =====================================================
+       BOTONES
+       ===================================================== */
+
+    .buttons {
+
+      display: grid;
+
+      gap: 11px;
+
+      width: 100%;
+
+      max-width: 470px;
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =====================================================
+       LOS 3 BOTONES SON EXACTAMENTE IGUALES
+       ===================================================== */
+
+    .btn {
+
+      width: 100%;
+
+      min-height: 52px;
+
+      height: 52px;
+
+      box-sizing: border-box;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      padding:
+        13px
+        18px;
+
+      border:
+        1px solid
+        var(--button-border);
+
+      border-radius: 15px;
+
+      background:
+        var(--button-bg);
+
+      color:
+        var(--button-text);
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      letter-spacing: .3px;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      appearance: none;
+
+      -webkit-appearance: none;
+
+      transition: .2s ease;
+
+    }
+
+
+    .btn:hover {
+
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(91,69,62,.10);
+
+    }
+
+
+    /* =====================================================
+       CONFIRMAR ASISTENCIA
+       ===================================================== */
+
+    .btn.primary {
+
+      background:
+        var(--button-primary-bg);
+
+      border-color:
+        var(--button-primary-border);
+
+      color:
+        var(--button-primary-text);
+
+    }
+
+
+    /* =====================================================
+       MESA DE REGALOS
+       ===================================================== */
+
+    .gift-title {
+
+      margin:
+        31px
+        0
+        12px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 20px;
+
+      font-weight: 400;
+
+      color: #6c5550;
+
+    }
+
+
+    .gift-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr;
+
+      gap: 10px;
+
+      width: 100%;
+
+      max-width: 470px;
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =====================================================
+       PALACIO DE HIERRO
+       Usa exactamente el mismo estilo que los otros botones
+       ===================================================== */
+
+    .gift-grid .btn {
+
+      width: 100%;
+
+      min-height: 52px;
+
+      height: 52px;
+
+      box-sizing: border-box;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .footer {
+
+      padding:
+        0
+        24px
+        34px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 24px;
+
+      line-height: 1.5;
+
+    }
+
+
+    .footer small {
+
+      display: block;
+
+      margin-top: 9px;
+
+      font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+
+      letter-spacing: 1.6px;
+
+      text-transform: uppercase;
+
+      color: #a18c86;
+
+    }
+
+
+    .hint {
+
+      margin-top: 18px;
+
+      font-size: 10px;
+
+      line-height: 1.5;
+
+      color: #a18c86;
+
+    }
+
+
+    /* =====================================================
+       CELULARES
+       ===================================================== */
+
+    @media (max-width: 430px) {
+
+      .page {
+
+        padding:
+          8px
+          8px
+          28px;
+
+      }
+
+
+      .card {
+
+        border-radius: 22px;
+
+      }
+
+
+      .hero {
+
+        padding: 8px;
+
+      }
+
+
+      .video-wrap {
+
+        border-radius: 17px;
+
+      }
+
+
+      .content {
+
+        padding:
+          29px
+          17px
+          34px;
+
+      }
+
+
+      h1 {
+
+        font-size: 34px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main class="page">
+
+
+    <section class="card">
+
+
+      <!-- =================================================
+           VIDEO
+           ================================================= -->
+
+      <div class="hero">
+
+        <div class="video-wrap">
+
+
+          <!--
+            EL VIDEO DEBE LLAMARSE:
+
+            baby-shower.mp4
+
+            Y ESTAR EN LA MISMA CARPETA
+            QUE index.html
+          -->
+
+          <video
+          src="1.mp4"
+          controls
+          playsinline
+          preload="metadata"
+          loop
+          ></video>
+
+
+          <div class="video-note">
+
+            Toca ▶ para reproducir
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           INFORMACIÓN
+           ================================================= -->
+
+      <section class="content">
+
+
+        <div class="eyebrow">
+
+
+        </div>
+
+
+        <h1>
+
+          Baby Shower
+          <br>
+          Revelación
+
+        </h1>
+
+
+        <p class="intro">
+
+          Nos encantará compartir contigo
+          este momento tan especial
+
+        </p>
+
+
+        <div class="divider"></div>
+
+
+
+        <!-- FECHA Y HORA -->
+
+        <div class="event">
+
+
+          <div class="event-box">
+
+            <strong>
+
+              Sábado 24 Oct
+
+            </strong>
+
+            <span>
+
+              Fecha
+
+            </span>
+
+          </div>
+
+
+          <div class="event-box">
+
+            <strong>
+
+              03:00 PM
+
+            </strong>
+
+            <span>
+
+              Hora
+
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- UBICACIÓN -->
+
+        <div class="location">
+
+
+          <strong>
+
+            📌 Lugar
+
+          </strong>
+
+
+          Calle Rabaul 409.
+          Col. Jardín Azpeitia
+
+          <br>
+
+          Azcapotzalco
+
+
+        </div>
+
+
+        <div class="hint">
+
+          Puedes confirmar tu asistencia,
+          consultar la ubicación y acceder
+          a la mesa de regalos desde estos botones
+
+        </div>
+
+
+        <br>
+
+
+
+        <!-- =================================================
+             BOTONES
+             ================================================= -->
+
+        <div class="buttons">
+
+
+          <!-- CONFIRMAR ASISTENCIA -->
+
+          <button
+            class="btn primary"
+            type="button"
+            onclick="abrirConfirmacion()"
+          >
+
+            💌 CONFIRMAR ASISTENCIA
+
+          </button>
+
+
+          <!-- GOOGLE MAPS -->
+
+          <a
+            class="btn"
+            href="https://maps.app.goo.gl/Ng8H1Bg6vhcm6r3QA"
+            target="_blank"
+            rel="noopener"
+          >
+
+            📍 VER UBICACIÓN
+
+          </a>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             VENTANA DE CONFIRMACIÓN
+             ================================================= -->
+
+        <div
+          id="confirmacion"
+          style="
+            display:none;
+            position:fixed;
+            inset:0;
+            background:rgba(91,69,62,.35);
+            backdrop-filter:blur(5px);
+            z-index:9999;
+            align-items:center;
+            justify-content:center;
+            padding:20px;
+          "
+        >
+
+
+          <div
+            style="
+              width:min(100%,390px);
+              background:#fffdfb;
+              border:1px solid #eadbd5;
+              border-radius:24px;
+              padding:28px 22px;
+              text-align:center;
+              box-shadow:0 18px 50px rgba(91,69,62,.18);
+              position:relative;
+            "
+          >
+
+
+            <!-- CERRAR -->
+
+            <button
+              type="button"
+              onclick="cerrarConfirmacion()"
+              style="
+                position:absolute;
+                top:12px;
+                right:15px;
+                border:0;
+                background:none;
+                font-size:24px;
+                color:#8b7771;
+                cursor:pointer;
+              "
+              aria-label="Cerrar"
+            >
+
+              ×
+
+            </button>
+
+
+            <!-- TÍTULO -->
+
+            <div
+              style="
+                font-family:Georgia,'Times New Roman',serif;
+                font-size:26px;
+                color:#6c5550;
+                margin-bottom:8px;
+              "
+            >
+
+              Confirmar asistencia
+
+            </div>
+
+
+            <div
+              style="
+                font-size:13px;
+                line-height:1.6;
+                color:#8b7771;
+                margin-bottom:20px;
+              "
+            >
+
+              Nos encantará contar contigo.
+
+            </div>
+
+
+            <!-- NOMBRE -->
+
+            <div
+              style="
+                text-align:left;
+                margin-bottom:20px;
+              "
+            >
+
+              <label
+                for="nombreInvitado"
+                style="
+                  display:block;
+                  font-size:11px;
+                  letter-spacing:1px;
+                  text-transform:uppercase;
+                  color:#8b7771;
+                  margin-bottom:7px;
+                "
+              >
+
+                Nombre
+
+              </label>
+
+
+              <input
+                id="nombreInvitado"
+                type="text"
+                placeholder="Escribe tu nombre"
+                maxlength="80"
+                autocomplete="name"
+                style="
+                  width:100%;
+                  height:48px;
+                  padding:0 14px;
+                  border:1px solid #eadbd5;
+                  border-radius:13px;
+                  background:#fffaf7;
+                  color:#6c5550;
+                  font-family:Arial,sans-serif;
+                  font-size:13px;
+                  outline:none;
+                "
+              >
+
+            </div>
+
+
+            <!-- NÚMERO DE PERSONAS -->
+
+            <div
+              style="
+                font-size:11px;
+                letter-spacing:1px;
+                text-transform:uppercase;
+                color:#8b7771;
+                margin-bottom:10px;
+              "
+            >
+
+              ¿Cuántas personas asistirán?
+
+            </div>
+
+
+            <div
+              style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                gap:22px;
+                margin:10px 0 25px;
+              "
+            >
+
+
+              <button
+                type="button"
+                onclick="cambiarPersonas(-1)"
+                style="
+                  width:44px;
+                  height:44px;
+                  border-radius:50%;
+                  border:1px solid #eadbd5;
+                  background:#fffaf7;
+                  color:#6c5550;
+                  font-size:24px;
+                  cursor:pointer;
+                "
+              >
+
+                −
+
+              </button>
+
+
+              <div>
+
+                <div
+                  id="cantidadPersonas"
+                  style="
+                    font-family:Georgia,'Times New Roman',serif;
+                    font-size:38px;
+                    color:#6c5550;
+                    line-height:1;
+                  "
+                >
+
+                  1
+
+                </div>
+
+
+                <div
+                  style="
+                    font-size:10px;
+                    letter-spacing:1.3px;
+                    text-transform:uppercase;
+                    color:#a18c86;
+                    margin-top:6px;
+                  "
+                >
+
+                  personas
+
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                onclick="cambiarPersonas(1)"
+                style="
+                  width:44px;
+                  height:44px;
+                  border-radius:50%;
+                  border:1px solid #eadbd5;
+                  background:#fffaf7;
+                  color:#6c5550;
+                  font-size:24px;
+                  cursor:pointer;
+                "
+              >
+
+                +
+
+              </button>
+
+            </div>
+
+
+            <!-- MENSAJE DE ERROR -->
+
+            <div
+              id="errorNombre"
+              style="
+                display:none;
+                color:#a97872;
+                font-size:11px;
+                margin:-12px 0 14px;
+              "
+            >
+
+              Por favor, escribe tu nombre para confirmar.
+
+            </div>
+
+
+            <!-- ENVIAR -->
+
+            <button
+              type="button"
+              onclick="enviarWhatsApp()"
+              style="
+                width:100%;
+                min-height:52px;
+                border:0;
+                border-radius:15px;
+                background:#c89d98;
+                color:#fff;
+                font-size:13px;
+                font-weight:600;
+                letter-spacing:.3px;
+                cursor:pointer;
+              "
+            >
+
+              ENVIAR
+
+            </button>
+
+
+          </div>
+
+        </div>
+
+
+        <script>
+
+          let personas = 1;
+
+
+          function abrirConfirmacion() {
+
+            document.getElementById("confirmacion").style.display = "flex";
+
+            document.getElementById("nombreInvitado").focus();
+
+          }
+
+
+          function cerrarConfirmacion() {
+
+            document.getElementById("confirmacion").style.display = "none";
+
+          }
+
+
+          function cambiarPersonas(valor) {
+
+            personas += valor;
+
+
+            if (personas < 1) {
+
+              personas = 1;
+
+            }
+
+
+            if (personas > 10) {
+
+              personas = 10;
+
+            }
+
+
+            document.getElementById("cantidadPersonas").textContent = personas;
+
+          }
+
+
+          function enviarWhatsApp() {
+
+            const nombre =
+              document.getElementById("nombreInvitado").value.trim();
+
+
+            const error =
+              document.getElementById("errorNombre");
+
+
+            if (nombre === "") {
+
+              error.style.display = "block";
+
+              document.getElementById("nombreInvitado").focus();
+
+              return;
+
+            }
+
+
+            error.style.display = "none";
+
+
+            const numero = "525511517127";
+
+
+            const mensaje =
+              "Hola, queremos confirmar nuestra asistencia al Baby Shower y Revelación.%0A%0A" +
+              "👤 Nombre: " +
+              nombre +
+              "%0A" +
+              "👥 Asistiremos: " +
+              personas +
+              (personas === 1 ? " persona." : " personas.");
+
+
+            const url =
+              "https://wa.me/" +
+              numero +
+              "?text=" +
+              mensaje;
+
+
+            window.open(url, "_blank");
+
+          }
+
+        </script>
+
+
+
+        <!-- =================================================
+             MESA DE REGALOS
+             ================================================= -->
+
+        <div class="gift-title">
+
+          🎁 Mesa de regalos
+
+        </div>
+
+
+        <div class="gift-grid">
+
+
+          <!-- PALACIO DE HIERRO -->
+
+          <a
+            class="btn"
+            href="https://www.elpalaciodehierro.com/listaregalos#/event/5003705 "
+            target="_blank"
+            rel="noopener"
+          >
+
+          PALACIO DE HIERRO
+
+          </a>
+
+
+        </div>
+
+
+        <div class="hint">
+
+          Puedes confirmar tu asistencia,
+          consultar la ubicación y acceder
+          a la mesa de regalos desde estos botones
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =================================================
+           PIE
+           ================================================= -->
+
+      <footer class="footer">
+
+
+        Te esperamos
+
+
+        <small>
+
+          Celebrando el comienzo
+          de una nueva aventura
+
+        </small>
+
+
+      </footer>
+
+
+    </section>
+
+
+  </main>
+
+
+</body>
+
+</html>
