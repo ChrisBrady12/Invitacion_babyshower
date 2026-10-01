@@ -12,8 +12,10 @@
 
   <title>Baby Shower</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <!-- =====================================================
        VISTA PREVIA AL COMPARTIR
@@ -69,7 +71,6 @@
     content="https://chrisbrady12.github.io/Invitacion_babyshower/"
   >
 
-
   <!-- =====================================================
        COLOR DEL NAVEGADOR
        ===================================================== -->
@@ -78,7 +79,6 @@
     name="theme-color"
     content="#fbf6f2"
   >
-
 
   <!-- =====================================================
        ESTILOS
@@ -105,7 +105,6 @@
       --shadow:
         0 18px 50px
         rgba(91,69,62,.12);
-
 
       /* =================================================
          COLORES DE LOS BOTONES
@@ -165,15 +164,25 @@
 
       min-height: 100vh;
 
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+
+    body.modal-open {
+      overflow: hidden;
     }
 
 
     a {
-
       text-decoration: none;
-
       color: inherit;
+    }
 
+
+    button,
+    input {
+      font-family: inherit;
     }
 
 
@@ -290,6 +299,22 @@
         0 5px 18px
         rgba(0,0,0,.08);
 
+      pointer-events: none;
+
+      transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+    }
+
+
+    .video-note.hidden {
+
+      opacity: 0;
+
+      transform:
+        translate(-50%, 6px);
+
     }
 
 
@@ -315,6 +340,8 @@
 
       animation:
         arrowDown 1.6s ease-in-out infinite;
+
+      user-select: none;
 
     }
 
@@ -612,7 +639,12 @@
 
       -webkit-appearance: none;
 
-      transition: .2s ease;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+      touch-action: manipulation;
 
     }
 
@@ -625,6 +657,27 @@
       box-shadow:
         0 8px 20px
         rgba(91,69,62,.10);
+
+    }
+
+
+    .btn:active {
+
+      transform:
+        translateY(0);
+
+      box-shadow: none;
+
+    }
+
+
+    .btn:focus-visible {
+
+      outline:
+        2px solid
+        var(--accent-dark);
+
+      outline-offset: 3px;
 
     }
 
@@ -766,6 +819,507 @@
 
 
     /* =====================================================
+       VENTANA DE CONFIRMACIÓN
+       ===================================================== */
+
+    .modal {
+
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      background:
+        rgba(91,69,62,.35);
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
+
+      z-index: 9999;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 20px;
+
+      opacity: 0;
+
+      transition:
+        opacity .2s ease;
+
+    }
+
+
+    .modal.open {
+
+      display: flex;
+
+      opacity: 1;
+
+    }
+
+
+    .modal-box {
+
+      width:
+        min(100%, 390px);
+
+      max-height:
+        calc(100vh - 40px);
+
+      overflow-y: auto;
+
+      background:
+        #fffdfb;
+
+      border:
+        1px solid
+        #eadbd5;
+
+      border-radius: 24px;
+
+      padding:
+        28px
+        22px;
+
+      text-align: center;
+
+      box-shadow:
+        0 18px 50px
+        rgba(91,69,62,.18);
+
+      position: relative;
+
+      transform:
+        translateY(10px)
+        scale(.98);
+
+      transition:
+        transform .2s ease;
+
+    }
+
+
+    .modal.open .modal-box {
+
+      transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+
+    /* =====================================================
+       CERRAR MODAL
+       ===================================================== */
+
+    .close-btn {
+
+      position: absolute;
+
+      top: 10px;
+
+      right: 13px;
+
+      width: 38px;
+
+      height: 38px;
+
+      border: 0;
+
+      background: transparent;
+
+      border-radius: 50%;
+
+      font-size: 27px;
+
+      line-height: 1;
+
+      color: #8b7771;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition:
+        background .2s ease;
+
+    }
+
+
+    .close-btn:hover {
+
+      background:
+        #fff4ef;
+
+    }
+
+
+    .close-btn:focus-visible {
+
+      outline:
+        2px solid
+        var(--accent-dark);
+
+      outline-offset: 2px;
+
+    }
+
+
+    /* =====================================================
+       TÍTULO DEL MODAL
+       ===================================================== */
+
+    .modal-title {
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 26px;
+
+      color: #6c5550;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .modal-description {
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      color: #8b7771;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    /* =====================================================
+       CAMPO NOMBRE
+       ===================================================== */
+
+    .field {
+
+      text-align: left;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .field label {
+
+      display: block;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      color: #8b7771;
+
+      margin-bottom: 7px;
+
+    }
+
+
+    .field input {
+
+      width: 100%;
+
+      height: 48px;
+
+      padding:
+        0
+        14px;
+
+      border:
+        1px solid
+        #eadbd5;
+
+      border-radius: 13px;
+
+      background:
+        #fffaf7;
+
+      color:
+        #6c5550;
+
+      font-size: 13px;
+
+      outline: none;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+    }
+
+
+    .field input::placeholder {
+
+      color:
+        #b09c96;
+
+    }
+
+
+    .field input:focus {
+
+      border-color:
+        var(--accent);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(200,157,152,.12);
+
+    }
+
+
+    /* =====================================================
+       NÚMERO DE PERSONAS
+       ===================================================== */
+
+    .people-label {
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      color: #8b7771;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .people-control {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 22px;
+
+      margin:
+        10px
+        0
+        25px;
+
+    }
+
+
+    .people-button {
+
+      width: 44px;
+
+      height: 44px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        #eadbd5;
+
+      background:
+        #fffaf7;
+
+      color:
+        #6c5550;
+
+      font-size: 24px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition:
+        background .2s ease,
+        transform .15s ease;
+
+    }
+
+
+    .people-button:hover {
+
+      background:
+        #fff3ee;
+
+    }
+
+
+    .people-button:active {
+
+      transform:
+        scale(.94);
+
+    }
+
+
+    .people-button:focus-visible {
+
+      outline:
+        2px solid
+        var(--accent-dark);
+
+      outline-offset: 2px;
+
+    }
+
+
+    .people-number {
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 38px;
+
+      color:
+        #6c5550;
+
+      line-height: 1;
+
+    }
+
+
+    .people-text {
+
+      font-size: 10px;
+
+      letter-spacing: 1.3px;
+
+      text-transform: uppercase;
+
+      color:
+        #a18c86;
+
+      margin-top: 6px;
+
+    }
+
+
+    /* =====================================================
+       MENSAJE DE ERROR
+       ===================================================== */
+
+    .error-name {
+
+      display: none;
+
+      color:
+        #a97872;
+
+      font-size: 11px;
+
+      margin:
+        -12px
+        0
+        14px;
+
+    }
+
+
+    .error-name.show {
+
+      display: block;
+
+    }
+
+
+    /* =====================================================
+       BOTÓN ENVIAR
+       ===================================================== */
+
+    .send-button {
+
+      width: 100%;
+
+      min-height: 52px;
+
+      border: 0;
+
+      border-radius: 15px;
+
+      background:
+        #c89d98;
+
+      color:
+        #fff;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
+      letter-spacing: .3px;
+
+      cursor: pointer;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    }
+
+
+    .send-button:hover {
+
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(91,69,62,.12);
+
+    }
+
+
+    .send-button:active {
+
+      transform:
+        translateY(0);
+
+      box-shadow: none;
+
+    }
+
+
+    .send-button:focus-visible {
+
+      outline:
+        2px solid
+        var(--accent-dark);
+
+      outline-offset: 3px;
+
+    }
+
+
+    /* =====================================================
        CELULARES
        ===================================================== */
 
@@ -818,6 +1372,55 @@
 
       }
 
+
+      .modal {
+
+        padding:
+          12px;
+
+      }
+
+
+      .modal-box {
+
+        max-height:
+          calc(100vh - 24px);
+
+        border-radius:
+          21px;
+
+        padding:
+          26px
+          18px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCCIÓN DE MOVIMIENTO
+       ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .scroll-arrow {
+        animation: none;
+      }
+
+      .btn,
+      .modal,
+      .modal-box,
+      .video-note,
+      .send-button,
+      .people-button {
+        transition: none;
+      }
+
     }
 
   </style>
@@ -844,6 +1447,7 @@
 
 
           <video
+            id="videoPrincipal"
             src="1.mp4"
             controls
             playsinline
@@ -852,7 +1456,10 @@
           ></video>
 
 
-          <div class="video-note">
+          <div
+            id="videoNote"
+            class="video-note"
+          >
 
             Toca ▶ para reproducir
 
@@ -884,7 +1491,6 @@
 
         <div class="eyebrow">
 
-
         </div>
 
 
@@ -909,7 +1515,9 @@
         <div class="divider"></div>
 
 
-        <!-- FECHA Y HORA -->
+        <!-- =================================================
+             FECHA Y HORA
+             ================================================= -->
 
         <div class="event">
 
@@ -951,7 +1559,9 @@
         </div>
 
 
-        <!-- UBICACIÓN -->
+        <!-- =================================================
+             UBICACIÓN
+             ================================================= -->
 
         <div class="location">
 
@@ -1012,7 +1622,7 @@
             class="btn"
             href="https://maps.app.goo.gl/Ng8H1Bg6vhcm6r3QA"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
 
             📍 VER UBICACIÓN
@@ -1029,31 +1639,17 @@
 
         <div
           id="confirmacion"
-          style="
-            display:none;
-            position:fixed;
-            inset:0;
-            background:rgba(91,69,62,.35);
-            backdrop-filter:blur(5px);
-            z-index:9999;
-            align-items:center;
-            justify-content:center;
-            padding:20px;
-          "
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="tituloConfirmacion"
+          aria-hidden="true"
         >
 
 
           <div
-            style="
-              width:min(100%,390px);
-              background:#fffdfb;
-              border:1px solid #eadbd5;
-              border-radius:24px;
-              padding:28px 22px;
-              text-align:center;
-              box-shadow:0 18px 50px rgba(91,69,62,.18);
-              position:relative;
-            "
+            class="modal-box"
+            role="document"
           >
 
 
@@ -1061,17 +1657,8 @@
 
             <button
               type="button"
+              class="close-btn"
               onclick="cerrarConfirmacion()"
-              style="
-                position:absolute;
-                top:12px;
-                right:15px;
-                border:0;
-                background:none;
-                font-size:24px;
-                color:#8b7771;
-                cursor:pointer;
-              "
               aria-label="Cerrar"
             >
 
@@ -1083,12 +1670,8 @@
             <!-- TÍTULO -->
 
             <div
-              style="
-                font-family:Georgia,'Times New Roman',serif;
-                font-size:26px;
-                color:#6c5550;
-                margin-bottom:8px;
-              "
+              id="tituloConfirmacion"
+              class="modal-title"
             >
 
               Confirmar asistencia
@@ -1096,14 +1679,7 @@
             </div>
 
 
-            <div
-              style="
-                font-size:13px;
-                line-height:1.6;
-                color:#8b7771;
-                margin-bottom:20px;
-              "
-            >
+            <div class="modal-description">
 
               Nos encantará contar contigo.
 
@@ -1112,23 +1688,10 @@
 
             <!-- NOMBRE -->
 
-            <div
-              style="
-                text-align:left;
-                margin-bottom:20px;
-              "
-            >
+            <div class="field">
 
               <label
                 for="nombreInvitado"
-                style="
-                  display:block;
-                  font-size:11px;
-                  letter-spacing:1px;
-                  text-transform:uppercase;
-                  color:#8b7771;
-                  margin-bottom:7px;
-                "
               >
 
                 Nombre
@@ -1142,18 +1705,7 @@
                 placeholder="Escribe tu nombre"
                 maxlength="80"
                 autocomplete="name"
-                style="
-                  width:100%;
-                  height:48px;
-                  padding:0 14px;
-                  border:1px solid #eadbd5;
-                  border-radius:13px;
-                  background:#fffaf7;
-                  color:#6c5550;
-                  font-family:Arial,sans-serif;
-                  font-size:13px;
-                  outline:none;
-                "
+                inputmode="text"
               >
 
             </div>
@@ -1161,45 +1713,21 @@
 
             <!-- NÚMERO DE PERSONAS -->
 
-            <div
-              style="
-                font-size:11px;
-                letter-spacing:1px;
-                text-transform:uppercase;
-                color:#8b7771;
-                margin-bottom:10px;
-              "
-            >
+            <div class="people-label">
 
               ¿Cuántas personas asistirán?
 
             </div>
 
 
-            <div
-              style="
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                gap:22px;
-                margin:10px 0 25px;
-              "
-            >
+            <div class="people-control">
 
 
               <button
                 type="button"
+                class="people-button"
                 onclick="cambiarPersonas(-1)"
-                style="
-                  width:44px;
-                  height:44px;
-                  border-radius:50%;
-                  border:1px solid #eadbd5;
-                  background:#fffaf7;
-                  color:#6c5550;
-                  font-size:24px;
-                  cursor:pointer;
-                "
+                aria-label="Disminuir cantidad"
               >
 
                 −
@@ -1211,12 +1739,7 @@
 
                 <div
                   id="cantidadPersonas"
-                  style="
-                    font-family:Georgia,'Times New Roman',serif;
-                    font-size:38px;
-                    color:#6c5550;
-                    line-height:1;
-                  "
+                  class="people-number"
                 >
 
                   1
@@ -1224,15 +1747,7 @@
                 </div>
 
 
-                <div
-                  style="
-                    font-size:10px;
-                    letter-spacing:1.3px;
-                    text-transform:uppercase;
-                    color:#a18c86;
-                    margin-top:6px;
-                  "
-                >
+                <div class="people-text">
 
                   personas
 
@@ -1243,22 +1758,15 @@
 
               <button
                 type="button"
+                class="people-button"
                 onclick="cambiarPersonas(1)"
-                style="
-                  width:44px;
-                  height:44px;
-                  border-radius:50%;
-                  border:1px solid #eadbd5;
-                  background:#fffaf7;
-                  color:#6c5550;
-                  font-size:24px;
-                  cursor:pointer;
-                "
+                aria-label="Aumentar cantidad"
               >
 
                 +
 
               </button>
+
 
             </div>
 
@@ -1267,12 +1775,8 @@
 
             <div
               id="errorNombre"
-              style="
-                display:none;
-                color:#a97872;
-                font-size:11px;
-                margin:-12px 0 14px;
-              "
+              class="error-name"
+              role="alert"
             >
 
               Por favor, escribe tu nombre para confirmar.
@@ -1284,19 +1788,8 @@
 
             <button
               type="button"
+              class="send-button"
               onclick="enviarWhatsApp()"
-              style="
-                width:100%;
-                min-height:52px;
-                border:0;
-                border-radius:15px;
-                background:#c89d98;
-                color:#fff;
-                font-size:13px;
-                font-weight:600;
-                letter-spacing:.3px;
-                cursor:pointer;
-              "
             >
 
               ENVIAR
@@ -1307,102 +1800,6 @@
           </div>
 
         </div>
-
-
-        <script>
-
-          let personas = 1;
-
-
-          function abrirConfirmacion() {
-
-            document.getElementById("confirmacion").style.display = "flex";
-
-            document.getElementById("nombreInvitado").focus();
-
-          }
-
-
-          function cerrarConfirmacion() {
-
-            document.getElementById("confirmacion").style.display = "none";
-
-          }
-
-
-          function cambiarPersonas(valor) {
-
-            personas += valor;
-
-
-            if (personas < 1) {
-
-              personas = 1;
-
-            }
-
-
-            if (personas > 10) {
-
-              personas = 10;
-
-            }
-
-
-            document.getElementById("cantidadPersonas").textContent = personas;
-
-          }
-
-
-          function enviarWhatsApp() {
-
-            const nombre =
-              document.getElementById("nombreInvitado").value.trim();
-
-
-            const error =
-              document.getElementById("errorNombre");
-
-
-            if (nombre === "") {
-
-              error.style.display = "block";
-
-              document.getElementById("nombreInvitado").focus();
-
-              return;
-
-            }
-
-
-            error.style.display = "none";
-
-
-            const numero = "525511517127";
-
-
-            const mensaje =
-              "Hola, queremos confirmar nuestra asistencia al Baby Shower y Revelación.%0A%0A" +
-              "👤 Nombre: " +
-              nombre +
-              "%0A" +
-              "👥 Asistiremos: " +
-              personas +
-              (personas === 1 ? " persona." : " personas.");
-
-
-            const url =
-              "https://wa.me/" +
-              numero +
-              "?text=" +
-              mensaje;
-
-
-            window.open(url, "_blank");
-
-          }
-
-        </script>
 
 
         <!-- =================================================
@@ -1425,7 +1822,7 @@
             class="btn"
             href="https://www.elpalaciodehierro.com/listaregalos#/event/5003705"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
 
             PALACIO DE HIERRO
@@ -1446,11 +1843,11 @@
       <footer class="footer">
 
 
-        Te esperamos
-        <br>
+        Te esperamos        
 
 
         <small>
+          <br>
 
           Celebrando juntos el comienzo
           de una nueva aventura
@@ -1467,7 +1864,350 @@
   </main>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+
+    let personas = 1;
+
+    const modal =
+      document.getElementById("confirmacion");
+
+    const nombreInput =
+      document.getElementById("nombreInvitado");
+
+    const errorNombre =
+      document.getElementById("errorNombre");
+
+    const video =
+      document.getElementById("videoPrincipal");
+
+    const videoNote =
+      document.getElementById("videoNote");
+
+
+    /* =====================================================
+       VIDEO
+       ===================================================== */
+
+    function ocultarAvisoVideo() {
+
+      videoNote.classList.add("hidden");
+
+    }
+
+
+    function mostrarAvisoVideo() {
+
+      videoNote.classList.remove("hidden");
+
+    }
+
+
+    video.addEventListener(
+      "play",
+      ocultarAvisoVideo
+    );
+
+
+    video.addEventListener(
+      "pause",
+      function() {
+
+        /*
+         * Si el usuario pausa el video después de
+         * haber comenzado, ocultamos el aviso para
+         * no estorbar sobre el video.
+         */
+
+        ocultarAvisoVideo();
+
+      }
+    );
+
+
+    video.addEventListener(
+      "ended",
+      function() {
+
+        /*
+         * El video tiene loop, por lo que normalmente
+         * no llegará aquí. Se mantiene como respaldo.
+         */
+
+        ocultarAvisoVideo();
+
+      }
+    );
+
+
+    /* =====================================================
+       ABRIR CONFIRMACIÓN
+       ===================================================== */
+
+    function abrirConfirmacion() {
+
+      modal.classList.add("open");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+      errorNombre.classList.remove("show");
+
+      setTimeout(
+        function() {
+
+          nombreInput.focus();
+
+        },
+        100
+      );
+
+    }
+
+
+    /* =====================================================
+       CERRAR CONFIRMACIÓN
+       ===================================================== */
+
+    function cerrarConfirmacion() {
+
+      modal.classList.remove("open");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    /* =====================================================
+       CERRAR AL HACER CLIC FUERA
+       ===================================================== */
+
+    modal.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target === modal
+        ) {
+
+          cerrarConfirmacion();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       CERRAR CON ESC
+       ===================================================== */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("open")
+        ) {
+
+          cerrarConfirmacion();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       CAMBIAR CANTIDAD DE PERSONAS
+       ===================================================== */
+
+    function cambiarPersonas(valor) {
+
+      personas += valor;
+
+
+      if (personas < 1) {
+
+        personas = 1;
+
+      }
+
+
+      if (personas > 10) {
+
+        personas = 10;
+
+      }
+
+
+      document.getElementById(
+        "cantidadPersonas"
+      ).textContent = personas;
+
+    }
+
+
+    /* =====================================================
+       ENVIAR CONFIRMACIÓN POR WHATSAPP
+       ===================================================== */
+
+    function enviarWhatsApp() {
+
+      const nombre =
+        nombreInput.value.trim();
+
+
+      /*
+       * Validar nombre
+       */
+
+      if (nombre === "") {
+
+        errorNombre.classList.add(
+          "show"
+        );
+
+        nombreInput.focus();
+
+        return;
+
+      }
+
+
+      errorNombre.classList.remove(
+        "show"
+      );
+
+
+      /*
+       * Número de WhatsApp
+       */
+
+      const numero =
+        "525511517127";
+
+
+      /*
+       * Construcción del mensaje
+       */
+
+      const mensaje =
+        "Hola, queremos confirmar nuestra asistencia al Baby Shower y Revelación.\n\n" +
+        "👤 Nombre: " +
+        nombre +
+        "\n" +
+        "👥 Asistiremos: " +
+        personas +
+        (
+          personas === 1
+            ? " persona."
+            : " personas."
+        );
+
+
+      /*
+       * Codificar correctamente el mensaje.
+       *
+       * Esto permite que nombres con:
+       * - espacios
+       * - acentos
+       * - ñ
+       * - emojis
+       * - caracteres especiales
+       * se envíen correctamente.
+       */
+
+      const url =
+        "https://wa.me/" +
+        numero +
+        "?text=" +
+        encodeURIComponent(
+          mensaje
+        );
+
+
+      /*
+       * Abrir WhatsApp
+       */
+
+      window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+    }
+
+
+    /* =====================================================
+       OCULTAR ERROR AL ESCRIBIR
+       ===================================================== */
+
+    nombreInput.addEventListener(
+      "input",
+      function() {
+
+        if (
+          nombreInput.value.trim() !== ""
+        ) {
+
+          errorNombre.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       PERMITIR ENTER PARA ENVIAR
+       ===================================================== */
+
+    nombreInput.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Enter"
+        ) {
+
+          event.preventDefault();
+
+          enviarWhatsApp();
+
+        }
+
+      }
+    );
+
+
+  </script>
+
+
 </body>
 
 </html>
-
