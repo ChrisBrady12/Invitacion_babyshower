@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
@@ -613,23 +614,27 @@
 
       border:
         1px solid
-        var(--button-border);
+        #d8c1bb;
 
       border-radius: 15px;
 
       background:
-        var(--button-bg);
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fffaf7 100%
+        );
 
       color:
-        var(--button-text);
+        #654f4a;
 
       font-family: inherit;
 
       font-size: 13px;
 
-      font-weight: 600;
+      font-weight: 700;
 
-      letter-spacing: .3px;
+      letter-spacing: .4px;
 
       text-decoration: none;
 
@@ -639,10 +644,15 @@
 
       -webkit-appearance: none;
 
+      box-shadow:
+        0 3px 8px
+        rgba(91,69,62,.10);
+
       transition:
         transform .2s ease,
         box-shadow .2s ease,
-        background .2s ease;
+        background .2s ease,
+        border-color .2s ease;
 
       touch-action: manipulation;
 
@@ -652,11 +662,17 @@
     .btn:hover {
 
       transform:
-        translateY(-1px);
+        translateY(-2px);
+
+      background:
+        #ffffff;
+
+      border-color:
+        #c89d98;
 
       box-shadow:
-        0 8px 20px
-        rgba(91,69,62,.10);
+        0 7px 16px
+        rgba(91,69,62,.14);
 
     }
 
@@ -666,7 +682,9 @@
       transform:
         translateY(0);
 
-      box-shadow: none;
+      box-shadow:
+        0 2px 5px
+        rgba(91,69,62,.10);
 
     }
 
@@ -689,13 +707,40 @@
     .btn.primary {
 
       background:
-        var(--button-primary-bg);
+        linear-gradient(
+          180deg,
+          #d0a6a0 0%,
+          #c89d98 100%
+        );
 
       border-color:
-        var(--button-primary-border);
+        #b98982;
 
       color:
-        var(--button-primary-text);
+        #ffffff;
+
+      box-shadow:
+        0 4px 10px
+        rgba(169,120,114,.22);
+
+    }
+
+
+    .btn.primary:hover {
+
+      background:
+        linear-gradient(
+          180deg,
+          #d5ada7 0%,
+          #c89d98 100%
+        );
+
+      border-color:
+        #a97872;
+
+      box-shadow:
+        0 8px 18px
+        rgba(169,120,114,.25);
 
     }
 
@@ -730,7 +775,7 @@
       display: grid;
 
       grid-template-columns:
-        1fr;
+        repeat(2, 1fr);
 
       gap: 10px;
 
@@ -997,13 +1042,28 @@
 
     .modal-description {
 
-      font-size: 13px;
+      font-size: 15px;
+
+      line-height: 1.9;
+
+      color: #8b7771;
+
+      margin-bottom: 20px;
+
+      font-weight: bold;
+
+    }
+
+
+    .modal-description-2 {
+
+      font-size: 12px;
 
       line-height: 1.6;
 
       color: #8b7771;
 
-      margin-bottom: 20px;
+      margin-bottom: 25px;
 
     }
 
@@ -1506,8 +1566,7 @@
 
         <p class="intro">
 
-          Nos encantará compartir contigo
-          este momento tan especial
+          Queremos compartir contigo este momento tan especial
 
         </p>
 
@@ -1543,7 +1602,7 @@
 
             <strong>
 
-              03:00 PM
+              05:00 PM
 
             </strong>
 
@@ -1681,7 +1740,14 @@
 
             <div class="modal-description">
 
-              Nos encantará contar contigo.
+              ¡Nos encantará contar contigo!
+
+            </div>
+
+
+            <div class="modal-description-2">
+
+              Favor de enviar tu confirmación antes del 14 de octubre
 
             </div>
 
@@ -1830,6 +1896,20 @@
           </a>
 
 
+          <!-- LIVERPOOL -->
+
+          <a
+            class="btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            LIVERPOOL
+
+          </a>
+
+
         </div>
 
 
@@ -1843,7 +1923,7 @@
       <footer class="footer">
 
 
-        Te esperamos        
+        Te esperamos
 
 
         <small>
@@ -1920,12 +2000,6 @@
       "pause",
       function() {
 
-        /*
-         * Si el usuario pausa el video después de
-         * haber comenzado, ocultamos el aviso para
-         * no estorbar sobre el video.
-         */
-
         ocultarAvisoVideo();
 
       }
@@ -1935,11 +2009,6 @@
     video.addEventListener(
       "ended",
       function() {
-
-        /*
-         * El video tiene loop, por lo que normalmente
-         * no llegará aquí. Se mantiene como respaldo.
-         */
 
         ocultarAvisoVideo();
 
@@ -2079,9 +2148,7 @@
         nombreInput.value.trim();
 
 
-      /*
-       * Validar nombre
-       */
+      /* Validar nombre */
 
       if (nombre === "") {
 
@@ -2101,17 +2168,13 @@
       );
 
 
-      /*
-       * Número de WhatsApp
-       */
+      /* Número de WhatsApp */
 
       const numero =
         "525511517127";
 
 
-      /*
-       * Construcción del mensaje
-       */
+      /* Construcción del mensaje */
 
       const mensaje =
         "Hola, queremos confirmar nuestra asistencia al Baby Shower y Revelación.\n\n" +
@@ -2127,17 +2190,7 @@
         );
 
 
-      /*
-       * Codificar correctamente el mensaje.
-       *
-       * Esto permite que nombres con:
-       * - espacios
-       * - acentos
-       * - ñ
-       * - emojis
-       * - caracteres especiales
-       * se envíen correctamente.
-       */
+      /* Codificar correctamente el mensaje */
 
       const url =
         "https://wa.me/" +
@@ -2148,9 +2201,7 @@
         );
 
 
-      /*
-       * Abrir WhatsApp
-       */
+      /* Abrir WhatsApp */
 
       window.open(
         url,
